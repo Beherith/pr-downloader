@@ -24,6 +24,7 @@ enum {
 	HTTP_DOWNLOAD,
 	WIDGET_SEARCH,
 	FILESYSTEM_WRITEPATH,
+	REPOS_GZ_URL,
 	FILESYSTEM_DUMPSDP,
 	FILESYSTEM_VALIDATESDP,
 	DOWNLOAD_MAP,
@@ -48,6 +49,7 @@ static struct option long_options[] = {
     {"download-game", 1, 0, DOWNLOAD_GAME},
     {"download-engine", 1, 0, DOWNLOAD_ENGINE},
     {"filesystem-writepath", 1, 0, FILESYSTEM_WRITEPATH},
+    {"repos-gz-url", 1, 0, REPOS_GZ_URL},
     {"disable-logging", 0, 0, DISABLE_LOGGING},
     {"help", 0, 0, HELP},
     {"version", 0, 0, SHOW_VERSION},
@@ -136,6 +138,10 @@ int main(int argc, char** argv)
 			case FILESYSTEM_WRITEPATH: {
 				fsset = true;
 				DownloadSetConfig(CONFIG_FILESYSTEM_WRITEPATH, optarg);
+				break;
+			}
+			case REPOS_GZ_URL: {
+				DownloadSetConfig(CONFIG_REPOS_GZ_URL, optarg);
 				break;
 			}
 			case DISABLE_LOGGING:
