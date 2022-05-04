@@ -202,6 +202,9 @@ bool DownloadGetConfig(CONFIG type, const void** value)
 		case CONFIG_FETCH_DEPENDS:
 			*value = (const bool*)fetchDepends;
 			return true;
+		case CONFIG_REPOS_GZ_URL:
+			// FIXME: implement
+			return false;
 		case CONFIG_RAPID_FORCEUPDATE:
 			// FIXME: implement
 			return false;
