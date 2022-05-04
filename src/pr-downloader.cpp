@@ -181,11 +181,11 @@ bool DownloadSetConfig(CONFIG type, const void* value)
 		case CONFIG_FETCH_DEPENDS:
 			fetchDepends = (const bool*)value;
 			return true;
-		case CONFIG_REPOS_GZ_URL:
+		case CONFIG_REPOS_GZ_URL: {
 			std::string reposgzurl((const char*)value);
 			rapidDownload->setOption("masterurl", reposgzurl);
 			return true;
-
+		}
 		case CONFIG_RAPID_FORCEUPDATE:
 			rapidDownload->setOption("forceupdate", ""); // FIXME, use value
 			return true;
