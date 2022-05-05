@@ -40,7 +40,7 @@ public:
 	const std::string getRequestUrl(const std::string& name,
 				 DownloadEnum::Category cat);
 	bool setOption(const std::string& key,
-				 const std::string& value)
+				 const std::string& value);
 
 private:
 	bool parallelDownload(IDownload& download);
