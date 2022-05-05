@@ -8,6 +8,8 @@
 #include <curl/curl.h>
 #include <string>
 #include <list>
+#include "Util.h"
+
 
 class HashSHA1;
 class CFile;
@@ -36,7 +38,7 @@ public:
 	static bool ParseResult(const std::string& name, const std::string& json,
 				std::list<IDownload*>& res);
 	const std::string getRequestUrl(const std::string& name,
-				 DownloadEnum::Category cat)
+				 DownloadEnum::Category cat);
 
 private:
 	bool parallelDownload(IDownload& download);
