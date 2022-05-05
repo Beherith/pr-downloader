@@ -7,7 +7,8 @@ services:
       args:
         RAPID_GIT: /rapid-git
         RAPID_PACKAGES: /rapid-packages
-        RAPID_GIT_REPOS: https://github.com/springraaar/metal_factions
+        RAPID_GIT_REPOS: https://github.com/beyond-all-reason/BYAR-Chobby,https://github.com/Spring-Chobby/Chobby,https://github.com/beyond-all-reason/Beyond-All-Reason
+        # https://github.com/springraaar/metal_factions
         # https://github.com/beyond-all-reason/Beyond-All-Reason,
     ports:
       - "8080:80"
