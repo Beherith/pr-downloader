@@ -43,7 +43,7 @@ public:
 private:
 	bool parallelDownload(IDownload& download);
 	std::string escapeUrl(const std::string& url);
-	std::string httpsearchUrl("https://springfiles.springrts.com/json.php");
+	std::string httpsearchUrl{"https://springfiles.springrts.com/json.php"};
 	/**
   * show progress bar
   */
