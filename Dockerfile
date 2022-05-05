@@ -7,7 +7,7 @@ RUN apt install -y libcurl4-openssl-dev libzip-dev liblua5.1-0-dev
 
 WORKDIR /rapid-src
 
-RUN git clone https://github.com/spring/pr-downloader.git .
+RUN git clone https://github.com/Beherith/pr-downloader.git .
 RUN git submodule init
 RUN git submodule update
 
@@ -55,7 +55,7 @@ RUN rapid-update-repos.py
 RUN chmod +x /usr/local/bin/rapid-update-git.sh
 RUN rapid-update-git.sh
 
-RUN git clone https://github.com/spring/upq /upq
+RUN git clone https://github.com/Beherith/upq /upq
 
 COPY conf/apache.conf /etc/apache2/sites-available/rapid-packages.conf
 COPY conf/upq.conf /etc/apache2/sites-available/upq.conf
