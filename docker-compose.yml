@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.7"
 services:
   rapid:
     build:
@@ -10,7 +10,7 @@ services:
         RAPID_GIT_REPOS: https://github.com/springraaar/metal_factions
         # https://github.com/beyond-all-reason/Beyond-All-Reason,
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - rapid_git:/rapid-git
 volumes:
