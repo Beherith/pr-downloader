@@ -8,7 +8,7 @@
 #include <curl/curl.h>
 #include <string>
 #include <list>
-#include "Util.h"
+//#include "Util.h"
 
 
 class HashSHA1;
@@ -43,7 +43,7 @@ public:
 private:
 	bool parallelDownload(IDownload& download);
 	std::string escapeUrl(const std::string& url);
-	std::string httpsearchUrl(HTTP_SEARCH_URL);
+	std::string httpsearchUrl("https://springfiles.springrts.com/json.php");
 	/**
   * show progress bar
   */
