@@ -35,10 +35,13 @@ public:
 	static bool DownloadUrl(const std::string& url, std::string& res);
 	static bool ParseResult(const std::string& name, const std::string& json,
 				std::list<IDownload*>& res);
+	const std::string getRequestUrl(const std::string& name,
+				 DownloadEnum::Category cat)
 
 private:
 	bool parallelDownload(IDownload& download);
 	std::string escapeUrl(const std::string& url);
+	std::string httpsearchUrl(HTTP_SEARCH_URL);
 	/**
   * show progress bar
   */

@@ -186,6 +186,11 @@ bool DownloadSetConfig(CONFIG type, const void* value)
 			rapidDownload->setOption("masterurl", reposgzurl);
 			return true;
 		}
+		case CONFIG_HTTP_SEARCH_URL: {
+			std::string httpsearchurl((const char*)value);
+			httpDownload->setOption("httpsearchurl", httpsearchurl);
+			return true;
+		}
 		case CONFIG_RAPID_FORCEUPDATE:
 			rapidDownload->setOption("forceupdate", ""); // FIXME, use value
 			return true;

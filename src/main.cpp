@@ -25,6 +25,7 @@ enum {
 	WIDGET_SEARCH,
 	FILESYSTEM_WRITEPATH,
 	REPOS_GZ_URL,
+	HTTP_SEARCHURL,
 	FILESYSTEM_DUMPSDP,
 	FILESYSTEM_VALIDATESDP,
 	DOWNLOAD_MAP,
@@ -50,6 +51,7 @@ static struct option long_options[] = {
     {"download-engine", 1, 0, DOWNLOAD_ENGINE},
     {"filesystem-writepath", 1, 0, FILESYSTEM_WRITEPATH},
     {"repos-gz-url", 1, 0, REPOS_GZ_URL},
+    {"http-search-url", 1, 0, HTTP_SEARCHURL},
     {"disable-logging", 0, 0, DISABLE_LOGGING},
     {"help", 0, 0, HELP},
     {"version", 0, 0, SHOW_VERSION},
@@ -142,6 +144,10 @@ int main(int argc, char** argv)
 			}
 			case REPOS_GZ_URL: {
 				DownloadSetConfig(CONFIG_REPOS_GZ_URL, optarg);
+				break;
+			}
+			case HTTP_SEARCHURL: {
+				DownloadSetConfig(CONFIG_HTTP_SEARCH_URL, optarg);
 				break;
 			}
 			case DISABLE_LOGGING:

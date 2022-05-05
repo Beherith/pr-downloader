@@ -73,7 +73,7 @@ bool CHttpDownloader::DownloadUrl(const std::string& url, std::string& res)
 	curl_easy_setopt(curlw.GetHandle(), CURLOPT_PROGRESSDATA, &d);
 	curl_easy_setopt(curlw.GetHandle(), CURLOPT_PROGRESSFUNCTION, progress_func);
 	curl_easy_setopt(curlw.GetHandle(), CURLOPT_NOPROGRESS, 0L);
-
+	curl_easy_setopt(curlw.GetHandle(), CURLOPT_SSL_OPTIONS, CURLSSLOPT_NO_REVOKE);
 	curl_easy_setopt(curlw.GetHandle(), CURLOPT_VERBOSE, 1L);
 
 	const CURLcode curlres = curl_easy_perform(curlw.GetHandle());
@@ -86,15 +86,29 @@ bool CHttpDownloader::DownloadUrl(const std::string& url, std::string& res)
 	return curlres == CURLE_OK;
 }
 
-static std::string getRequestUrl(const std::string& name,
+const std::string CHttpDownloader::getRequestUrl(const std::string& name,
 				 DownloadEnum::Category cat)
 {
-	std::string url = HTTP_SEARCH_URL + std::string("?");
+	std::string url = httpsearchUrl + std::string("?");
 	if (cat != DownloadEnum::CAT_NONE) {
 		url += "category=" + DownloadEnum::getCat(cat) + std::string("&");
 	}
 	return url + std::string("springname=") + name;
 }
+
+
+bool CHttpDownloader::setOption(const std::string& key,
+				 const std::string& value)
+{
+	LOG_INFO("setOption %s = %s", key.c_str(), value.c_str());
+	if (key == "httpsearchurl") {
+		httpsearchUrl = value;
+		return true;
+	}
+	return IDownloader::setOption(key, value);
+}
+
+
 
 bool CHttpDownloader::ParseResult(const std::string& /*name*/,
 				  const std::string& json,
