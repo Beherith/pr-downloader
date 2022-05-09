@@ -57,6 +57,9 @@ RUN rapid-update-git.sh
 
 RUN git clone https://github.com/Beherith/upq /upq
 
-COPY conf/apache.conf /etc/apache2/sites-available/rapid-packages.conf
-COPY conf/upq.conf /etc/apache2/sites-available/upq.conf
-RUN a2dissite 000-default && a2ensite rapid-packages && a2ensite upq
+COPY conf/ /etc/conf/
+COPY docker/scripts /opt/
+
+RUN chmod +x /opt/*.sh
+
+RUN a2dissite 000-default

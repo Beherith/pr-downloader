@@ -2,7 +2,8 @@ version: "3.7"
 services:
   rapid:
     build:
-      context: .
+      context: ../
+      dockerfile: docker/Dockerfile
       target: scratch
       args:
         RAPID_GIT: /rapid-git
@@ -11,8 +12,12 @@ services:
         # https://github.com/springraaar/metal_factions
         # https://github.com/beyond-all-reason/Beyond-All-Reason,
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - rapid_git:/rapid-git
+    entrypoint: /opt/entrypoint.sh
+    command: "apache2-foreground"
+    environment:
+      UPQ_HOSTNAME: "api.localhost"
 volumes:
   rapid_git:
